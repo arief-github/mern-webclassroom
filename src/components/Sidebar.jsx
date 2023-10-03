@@ -1,8 +1,8 @@
 import {Stack} from "@mui/material";
 import {categories} from '../utils/constants.jsx'
 
-export const Sidebar = () => {
-    const selectedCategory = "New";
+export const Sidebar = (props) => {
+    const {selectedCategory, setSelectedCategory} = props
 
     return (
         <Stack
@@ -24,6 +24,7 @@ export const Sidebar = () => {
                             color: 'white'
                         }}
                         key={name}
+                        onClick={() => setSelectedCategory(name)}
                     >
                         <span style={{
                             color: name === selectedCategory ? 'white' : 'red', marginRight: "15px"

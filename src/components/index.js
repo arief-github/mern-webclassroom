@@ -5,6 +5,8 @@ import {VideoDetail} from './VideoDetail.jsx';
 import {ChannelDetail} from './ChannelDetail.jsx';
 import {SearchBar} from './SearchBar.jsx'
 import {Sidebar} from './Sidebar.jsx'
+import {VideoCard} from "./VideoCard.jsx";
+import {ChannelCard} from "./ChannelCard.jsx";
 
 export {
     Navbar,
@@ -13,5 +15,7 @@ export {
     SearchBar,
     Sidebar,
     VideoDetail,
+    VideoCard,
+    ChannelCard,
     ChannelDetail
 }
