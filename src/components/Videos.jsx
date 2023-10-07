@@ -2,8 +2,10 @@ import {Stack, Box} from '@mui/material';
 import { VideoCard, ChannelCard } from './';
 
 export const Videos = ({videos}) => {
+    if(!videos?.length) return "Loading...";
+
     return (
-        <Stack direction="row" flexWrap="wrap" justifyContent="start" gap={2}>
+        <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={2}>
             {
                 videos?.map((item) => (
                     <Box key={item.id}>
