@@ -5,6 +5,7 @@ import {Box} from '@mui/material';
 import {Videos} from './Videos.jsx';
 import {ChannelCard} from './ChannelCard.jsx';
 import {fetchFromAPI} from "../utils/fetch.js";
+import Loader from "./Loader.jsx";
 
 const fetchChannelDetail = ({id, setChannelDetail}) => {
     fetchFromAPI(`channels?part=snippet&id=${id}`)
@@ -23,12 +24,13 @@ export const ChannelDetail = () => {
     //get id as params
     const {id} = useParams();
 
-    console.log(channelDetail, videos)
 
     useEffect(() => {
         fetchChannelDetail({id: id, setChannelDetail: setChannelDetail});
         fetchChannelVideos({id: id, setVideos: setVideos});
     }, [id, setChannelDetail, setVideos])
+
+    if (!channelDetail) return <Loader/>
 
     return (
         <Box minHeight="95vh">

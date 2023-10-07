@@ -6,6 +6,7 @@ import {CheckCircle} from '@mui/icons-material';
 
 import {Videos} from './Videos';
 import {fetchFromAPI} from '../utils/fetch.js';
+import Loader from "./Loader.jsx";
 
 export const VideoDetail = () => {
     const [videoDetail, setVideoDetail] = useState(null);
@@ -22,7 +23,7 @@ export const VideoDetail = () => {
             .then((data) => setVideos(data.items));
     }, [id])
 
-    if (!videoDetail?.snippet) return "Loading...";
+    if (!videoDetail?.snippet) return <Loader/>;
 
     const {snippet: {title, channelId, channelTitle}, statistics: {viewCount, likeCount}} = videoDetail;
 

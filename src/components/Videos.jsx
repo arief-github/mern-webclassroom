@@ -1,11 +1,12 @@
 import {Stack, Box} from '@mui/material';
 import { VideoCard, ChannelCard } from './';
+import Loader from "./Loader.jsx";
 
-export const Videos = ({videos}) => {
-    if(!videos?.length) return "Loading...";
+export const Videos = ({videos, direction}) => {
+    if(!videos?.length) return <Loader/>;
 
     return (
-        <Stack direction="row" flexWrap="wrap" justifyContent="center" gap={2}>
+        <Stack direction={direction || "row"} flexWrap="wrap" justifyContent="start" alignItems="start" gap={2}>
             {
                 videos?.map((item) => (
                     <Box key={item.id}>
